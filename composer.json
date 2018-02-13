@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "": "vendor\\RafaelaCassianoCampos\\php-classes\\src"
+            "RafaelaCampos\\": "vendor\\RafaelaCassianoCampos\\php-classes\\src"
         }
     }
 }

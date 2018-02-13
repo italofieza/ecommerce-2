@@ -6,9 +6,13 @@ $app = new \Slim\Slim();
 
 $app->config('debug', true);
 
+use \RafaelaCampos\Database\Sql;
+
 $app->get('/', function() {
     
-	echo "OK";
+	$sql = new Sql();
+	$result = $sql->select("SELECT * FROM tb_persons");
+	echo json_encode($result);
 
 });
 
