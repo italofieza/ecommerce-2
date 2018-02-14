@@ -2,18 +2,18 @@
 
 require_once("vendor/autoload.php");
 
-$app = new \Slim\Slim();
+use \Slim\Slim;
+use \RafaelaCampos\Page;
+
+$app = new Slim();
 
 $app->config('debug', true);
 
-use \RafaelaCampos\Database\Sql;
-
 $app->get('/', function() {
     
-	$sql = new Sql();
-	$result = $sql->select("SELECT * FROM tb_persons");
-	echo json_encode($result);
-
+	$page = new Page(); //vai adicionar o header;
+	$page->setTpl("index"); //vai adicionar o conteúdo do html;
+	//e quando limpar a memória vai passar o footer;
 });
 
 $app->run();
