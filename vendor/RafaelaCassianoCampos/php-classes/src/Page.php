@@ -13,7 +13,9 @@ class Page {
         "data"=>[
             "header"=>true,
             "footer"=>true,
-            "data"=> []
+            "data"=> [
+                "data"=>[]
+            ]
         ]
     ];
 
