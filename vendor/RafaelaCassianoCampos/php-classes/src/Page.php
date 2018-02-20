@@ -10,11 +10,16 @@ class Page {
     private $tpl;
     private $options = [];
     private $defaults = [
-        "data"=>[]
+        "data"=>[
+            "header"=>true,
+            "footer"=>true,
+            "data"=> []
+        ]
     ];
 
     public function __construct($opts = array(), $tpl_dir = "/views/"){
 
+        $this->defaults["data"]["session"] = $_SESSION;
         //O array_merge irá mesclar e substituir o primeiro parâmetro, que nesse caso é o $this->defaults pelo $opt
         $this->options = array_merge($this->defaults, $opts);
         $config = array(
@@ -29,7 +34,8 @@ class Page {
 
         $this->setData($this->options["data"]);
 
-        $this->tpl->draw("header");
+        //Se o header estiver habilitado desenhe na tela
+        if($this->options["header"] === true) $this->tpl->draw("header");
         //vai desenhar o header quando inicializar
     }
 
@@ -48,8 +54,8 @@ class Page {
     }
 
     public function __destruct(){
-
-        $this->tpl->draw("footer");
+        //Se o header estiver habilitado desenhe na tela
+        if($this->options["footer"] === true) $this->tpl->draw("footer");
         //e por último vai desenhar o footer
     }
 }
