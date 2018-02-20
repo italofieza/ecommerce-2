@@ -40,8 +40,15 @@ $app->post('/admin/login', function(){
 	//Criar o método estático pq não sabemos qual é o usuário 
 	User::login($_POST["login"], $_POST["password"]);
 
-	//Redireciona para a pag da administraçãao
+	//Redireciona para a pag da administração
 	header("Location: /admin");
+	exit;
+});
+
+$app->get('/admin/logout', function(){
+
+	User::logout();
+	header("Location: /admin/login");
 	exit;
 });
 $app->run();
