@@ -4,7 +4,7 @@ Projeto desenvolvido do zero para fins de estudo com base no [Curso de PHP 7](ht
 
 Template usado no projeto [Almsaeed Studio](https://almsaeedstudio.com)
 
-### Prerequisites
+### Pré-requisitos
 
 Necessário instalar:
 ```
